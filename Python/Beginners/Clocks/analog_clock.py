@@ -23,8 +23,8 @@ def update_clock():
     canvas.coords(minutes_hand, center_x, center_y, minutes_x, minutes_y)
 
     # updating hours hand
-    hours_x = hours_hand_len * math.sin(math.radians(hours * 30)) + center_x
-    hours_y = -1 * hours_hand_len * math.cos(math.radians(hours * 30)) + center_y
+    hours_x = hours_hand_len * math.sin(math.radians(hours * 30 + 0.5 * minutes + 0.008 * seconds)) + center_x
+    hours_y = -1 * hours_hand_len * math.cos(math.radians(hours * 30 + 0.5 * minutes + 0.008 * seconds)) + center_y
     canvas.coords(hours_hand, center_x, center_y, hours_x, hours_y)
 
     window.after(1000, update_clock)
